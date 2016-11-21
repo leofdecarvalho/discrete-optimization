@@ -1,4 +1,4 @@
-# ReduxSimpleStarter
+# Coursera Discrete-Optimization Project Structure for java
 
 Interested in learning [Discrete Optimization](https://www.coursera.org/learn/discrete-optimization)?
 
