@@ -1,3 +1,5 @@
 target
 .idea
 /discret-optimization.iml
+/src/main/java/knapsack/*.java
+/src/main/java/coloring/*.java
