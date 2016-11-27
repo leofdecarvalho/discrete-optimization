@@ -3,3 +3,12 @@ target
 /discret-optimization.iml
 /src/main/java/knapsack/*.java
 /src/main/java/coloring/*.java
+/berk
+/tsp/*java
+/tsp_berkeley
+/tsp_memory
+
+/src/main/java/tsp/*.java
+/src/main/java/tsp/impl/*.java
+/src/main/java/tsp_berkeley/*.java
+/src/main/java/tsp_memory/*.java

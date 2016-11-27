@@ -61,7 +61,21 @@
             <artifactId>choco-solver</artifactId>
             <version>4.0.0</version>
         </dependency>
+        <dependency>
+            <groupId>com.sleepycat</groupId>
+            <artifactId>je</artifactId>
+            <version>5.0.84</version>
+        </dependency>
     </dependencies>
+
+    <repositories>
+        <repository>
+            <id>oracleReleases</id>
+            <name>Oracle Released Java Packages</name>
+            <url>http://download.oracle.com/maven</url>
+            <layout>default</layout>
+        </repository>
+    </repositories>
 
 </project>
 

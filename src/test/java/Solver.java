@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * The class <code>knapsack.SolverColor</code> is an implementation of a greedy algorithm to solve the knapsack problem.
+ * The class <code>knapsack.Solver</code> is an implementation of a greedy algorithm to solve the knapsack problem.
  *
  */
 class SolverTest {
