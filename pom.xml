@@ -8,8 +8,10 @@
     <artifactId>discret-optimization</artifactId>
     <version>1.0</version>
 
+
     <build>
         <plugins>
+            <!-- Build the jar file with dependencies -->
             <plugin>
                 <artifactId>maven-assembly-plugin</artifactId>
                 <configuration>
@@ -33,6 +35,7 @@
                     </execution>
                 </executions>
             </plugin>
+            <!-- Set the compiler version  -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -45,29 +48,46 @@
     </build>
 
     <dependencies>
+
+        <!-- Run unit tess -->
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>4.12</version>
         </dependency>
+
+        <!-- Helps create pojos -->
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <version>1.16.10</version>
             <scope>provided</scope>
         </dependency>
+
+        <!-- Solve problems with CP Programming -->
         <dependency>
             <groupId>org.choco-solver</groupId>
             <artifactId>choco-solver</artifactId>
             <version>4.0.0</version>
         </dependency>
+
+        <!-- Run big collections with files to solve big problems with local search, Dynamic Programming or Branch and bound. Its not time efficient -->
         <dependency>
             <groupId>com.sleepycat</groupId>
             <artifactId>je</artifactId>
             <version>5.0.84</version>
         </dependency>
+
+        <!-- Runs gurobi solver -->
+        <!-- Put gurobi.jar in your maven repo (folder maven parent >> com >> gurobi >> gurobi >> 7.0.1 ). Rename gurobi.jar to gurobi-7.0.1.jar -->
+        <dependency>
+            <groupId>com.gurobi</groupId>
+            <artifactId>gurobi</artifactId>
+            <version>7.0.1</version>
+        </dependency>
     </dependencies>
 
+    <!-- Run big collections with files. Its a sleepycat dependency. -->
     <repositories>
         <repository>
             <id>oracleReleases</id>
