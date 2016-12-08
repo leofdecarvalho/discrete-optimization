@@ -24,7 +24,7 @@ public class SolverColoring {
     private int[][] edges;
     private boolean[][] matrixEdges;
 
-    private static int TIME_LIMITE_SECONDS = 200;
+    private static int TIME_LIMIT_SECONDS = 200;
 
     public void solve() {
         //Create model
@@ -40,7 +40,7 @@ public class SolverColoring {
 
         //Configure solver
         org.chocosolver.solver.Solver solver = model.getSolver();
-        solver.limitTime(TIME_LIMITE_SECONDS * 1000);
+        solver.limitTime(TIME_LIMIT_SECONDS * 1000);
         solver.setSearch(Search.minDomLBSearch(nodesColor));
         final Solution solutionVar = new Solution(model, nodesColor);
         final Solution solutionObjective = new Solution(model, objective.getObjectiveExpression());
@@ -133,7 +133,7 @@ public class SolverColoring {
         public void addConstraints() {
             // Colors of adjacent nodes must be different
             for (int i = 0; i < edgesSize; i++) {
-                model.arithm(nodesColor[edges[i][0]], "!=",nodesColor[edges[i][1]]).post();
+                model.arithm(nodesColor[edges[i][0]], "!=", nodesColor[edges[i][1]]).post();
             }
 
             // Handle symmetry

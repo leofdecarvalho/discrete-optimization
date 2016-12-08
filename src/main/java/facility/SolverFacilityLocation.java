@@ -18,7 +18,7 @@ public class SolverFacilityLocation {
     private List<Facility> facilities;
     private List<Costumer> costumers;
 
-    private static int TIME_LIMITE_SECONDS = 200;
+    private static int TIME_LIMIT_SECONDS = 200;
 
     public Double getDistance(Point i, Point j) {
         double x1 = i.getX();
@@ -50,7 +50,7 @@ public class SolverFacilityLocation {
             model.getEnv().set(GRB.IntParam.Method, GRB.METHOD_BARRIER);  // Use barrier to solve root relaxation
             model.getEnv().set(GRB.IntParam.OutputFlag, 0); // Disable gurobi logs
             //model.write("Facility.lp"); //Used to print model in a file
-            model.getEnv().set(GRB.DoubleParam.TimeLimit, TIME_LIMITE_SECONDS);  //Define time limit optimization
+            model.getEnv().set(GRB.DoubleParam.TimeLimit, TIME_LIMIT_SECONDS);  //Define time limit optimization
 
             model.optimize();
 
