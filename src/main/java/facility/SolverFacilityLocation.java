@@ -31,37 +31,27 @@ public class SolverFacilityLocation {
     public void solve() {
         try {
 
-            // Model
+            // Create Model
             GRBEnv env = new GRBEnv();
             GRBModel model = new GRBModel(env);
             model.set(GRB.StringAttr.ModelName, "facility");
 
-
-            //Add objective
+            //Add objectiveExpression
             Objective objective = new Objective(model).addObjective();
             GRBVar[][] y = objective.getY();
             GRBVar[] x = objective.getX();
-
             //Add constraints
             new Constraints(model, y, x).addConstraints();
-
             //Add starting point to optimization
             new StartingPoint(x).defineGuess();
 
 
-            // The objective is to minimize the total fixed and variable costs
-            model.set(GRB.IntAttr.ModelSense, GRB.MINIMIZE);
-
-            // Use barrier to solve root relaxation
-            model.getEnv().set(GRB.IntParam.Method, GRB.METHOD_BARRIER);
-
-            // Disable gurobi logs
-            model.getEnv().set(GRB.IntParam.OutputFlag, 0);
-
+            //Configure solver
+            model.getEnv().set(GRB.IntParam.Method, GRB.METHOD_BARRIER);  // Use barrier to solve root relaxation
+            model.getEnv().set(GRB.IntParam.OutputFlag, 0); // Disable gurobi logs
             //model.write("Facility.lp"); //Used to print model in a file
+            model.getEnv().set(GRB.DoubleParam.TimeLimit, TIME_LIMITE_SECONDS);  //Define time limit optimization
 
-            //Define time limit optimization
-            model.getEnv().set(GRB.DoubleParam.TimeLimit, TIME_LIMITE_SECONDS);
             model.optimize();
 
             // model.computeIIS(); //Used to debug solution infeasible
@@ -141,6 +131,9 @@ public class SolverFacilityLocation {
             }
 
             model.update();
+
+            // The objectiveExpression is to minimize the total fixed and variable costs
+            model.set(GRB.IntAttr.ModelSense, GRB.MINIMIZE);
 
             return this;
         }
