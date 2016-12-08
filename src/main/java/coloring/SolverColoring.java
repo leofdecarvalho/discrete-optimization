@@ -68,19 +68,7 @@ public class SolverColoring {
         }
     }
 
-    private static Integer[] getNodeOrderedByDegree(int nodesSize, boolean[][] matrixEdges) {
-        Integer[] nodes = new Integer[nodesSize];
-        final int[] degree = new int[nodesSize];
-        for (int i = 0; i < nodesSize; i++) {
-            nodes[i] = i;
-            for (int j = 0; j < nodesSize; j++)
-                if (matrixEdges[i][j])
-                    degree[i]++;
-        }
-        Comparator<Integer> c = (a, b) -> (degree[b] - degree[a]);
-        Arrays.sort(nodes, c);
-        return nodes;
-    }
+
 
     @Data
     private class Objective {
@@ -117,6 +105,20 @@ public class SolverColoring {
             model.setObjective(Model.MINIMIZE, objectiveExpression);
 
             return this;
+        }
+
+        private Integer[] getNodeOrderedByDegree(int nodesSize, boolean[][] matrixEdges) {
+            Integer[] nodes = new Integer[nodesSize];
+            final int[] degree = new int[nodesSize];
+            for (int i = 0; i < nodesSize; i++) {
+                nodes[i] = i;
+                for (int j = 0; j < nodesSize; j++)
+                    if (matrixEdges[i][j])
+                        degree[i]++;
+            }
+            Comparator<Integer> c = (a, b) -> (degree[b] - degree[a]);
+            Arrays.sort(nodes, c);
+            return nodes;
         }
     }
 
