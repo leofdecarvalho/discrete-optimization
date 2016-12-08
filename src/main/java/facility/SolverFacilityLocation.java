@@ -46,7 +46,7 @@ public class SolverFacilityLocation {
             new Constraints(model, y, x).addConstraints();
 
             //Add starting point to optimization
-            new StartingPoint(x).invoke();
+            new StartingPoint(x).defineGuess();
 
 
             // The objective is to minimize the total fixed and variable costs
@@ -192,7 +192,7 @@ public class SolverFacilityLocation {
             this.x = x;
         }
 
-        public void invoke() throws GRBException {
+        public void defineGuess() throws GRBException {
             // Guess at the starting point: close the plant with the highest
             // fixed costs; open all others
 
