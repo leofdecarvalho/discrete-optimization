@@ -63,7 +63,7 @@ def load_metadata(metadata_file_name='_coursera'):
             for line in metadata_file.readlines():
                 if ',' in line:
                     line_parts = line.split(',')
-                    line_parts = [x.strip() for x in line_parts]
+                    line_parts = [amountDelivered.strip() for amountDelivered in line_parts]
                     assert(len(line_parts) == 4)
                     part_data.append(Part(*line_parts))
             if len(url) <= 0:

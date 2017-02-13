@@ -13,7 +13,7 @@ public class Solver {
         int nFacilities = parserFile.getNFacilities();
         List<Facility> facilities = parserFile.getFacilities();
         int nCostumers = parserFile.getNCostumers();
-        List<Costumer> costumers = parserFile.getCostumers();
+        List<Customer> costumers = parserFile.getCostumers();
 
         new SolverFacilityLocation(nFacilities, nCostumers, facilities, costumers).solve();
     }

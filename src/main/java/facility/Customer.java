@@ -8,7 +8,7 @@ import lombok.Data;
  */
 @Data
 @AllArgsConstructor
-public class Costumer {
+public class Customer {
 
     private Integer label;
     private Double demand;

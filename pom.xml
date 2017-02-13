@@ -85,6 +85,18 @@
             <artifactId>gurobi</artifactId>
             <version>7.0.1</version>
         </dependency>
+
+        <dependency>
+            <groupId>org.optaplanner</groupId>
+            <artifactId>optaplanner-core</artifactId>
+            <version>6.1.0.Beta3</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.optaplanner</groupId>
+            <artifactId>optaplanner-examples</artifactId>
+            <version>6.1.0.Beta3</version>
+        </dependency>
     </dependencies>
 
     <!-- Run big collections with files. Its a sleepycat dependency. -->
@@ -93,6 +105,12 @@
             <id>oracleReleases</id>
             <name>Oracle Released Java Packages</name>
             <url>http://download.oracle.com/maven</url>
+            <layout>default</layout>
+        </repository>
+        <repository>
+            <id>redhat</id>
+            <name>redhat</name>
+            <url>https://maven.repository.redhat.com/ga/</url>
             <layout>default</layout>
         </repository>
     </repositories>

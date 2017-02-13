@@ -16,7 +16,7 @@ class ParserFile {
     private int nFacilities;
     private int nCostumers;
     private List<Facility> facilities;
-    private List<Costumer> costumers;
+    private List<Customer> costumers;
 
     public ParserFile(String... args) {
         this.args = args;
@@ -47,7 +47,7 @@ class ParserFile {
         costumers = new ArrayList<>();
         for (; i <= nFacilities + nCostumers; i++) {
             String[] line = lines.get(i).split("\\s+");
-            costumers.add(new Costumer(i,
+            costumers.add(new Customer(i,
                     Double.parseDouble(line[0]),
                     new Point(Double.parseDouble(line[1]), Double.parseDouble(line[2]))
             ));
